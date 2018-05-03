@@ -18,17 +18,10 @@ def login_in(request):
     user = authenticate(username=username, password=password)
     if user is not None:
         login(request, user)
-        redirect(reverse('zw_app1:login_success'))
+        return HttpResponse("登录成功")
     else:
         redirect(reverse('zw_app1:login'))
 
-
-def login_success(request):
-    """
-    作为登录成功返回的页面
-
-    """
-    return HttpResponse("登录成功")
 
 
 
